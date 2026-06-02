@@ -28,4 +28,12 @@ config BT_MAX_PAIRED
 config ZMK_STUDIO
     default y
 
+# WORKAROUND for ZMK issue #3156: in a 2-peripheral dongle setup, peripheral
+# battery-level fetching causes ONE peripheral to connect but never finish
+# discovery, so it registers no key presses (exactly the "one half dead"
+# symptom). Disabling it makes both peripherals reliably work. Trade-off: no
+# per-half battery readout on the dongle/screen. Re-enable once #3156 is fixed.
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default n
+
 endif
