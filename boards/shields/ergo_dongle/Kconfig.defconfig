@@ -23,4 +23,9 @@ config BT_MAX_CONN
 config BT_MAX_PAIRED
     default 7
 
+# ZMK Studio runs on the dongle now (it's the central / USB host side).
+# The studio-rpc-usb-uart snippet in build.yaml adds the USB transport.
+config ZMK_STUDIO
+    default y
+
 endif
